@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\客戶聯絡人Controller.cs" />
     <Compile Include="Controllers\客戶資料ViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +212,10 @@
     <Compile Include="Models\sysdiagramsRepository.cs">
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validatable\CellPhoneNoAttribute.cs" />
+    <Compile Include="Models\Validatable\UniformNoAttribute.cs" />
+    <Compile Include="Models\Validatable\客戶聯絡人EmailValidate.cs" />
+    <Compile Include="Models\Validatable\客戶資料UniformNoValidate.cs" />
     <Compile Include="Models\客戶聯絡人.cs">
       <DependentUpon>CustomerModel.tt</DependentUpon>
     </Compile>
@@ -319,13 +324,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\客戶資料View\Create.cshtml" />
-    <Content Include="Views\客戶資料View\Delete.cshtml" />
     <Content Include="Views\客戶資料View\Details.cshtml" />
-    <Content Include="Views\客戶資料View\Edit.cshtml" />
     <Content Include="Views\客戶資料View\Index.cshtml" />
     <Content Include="Views\客戶資料View\_Layout.cshtml" />
     <Content Include="Views\客戶資料View\_ViewStart.cshtml" />
+    <Content Include="Views\客戶聯絡人\IndexByClient.cshtml" />
+    <Content Include="Views\客戶聯絡人\_ViewStart.cshtml" />
+    <Content Include="Views\客戶聯絡人\CreateByClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -337,6 +342,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
