@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<MVCEx2.Models.客戶聯絡人>
 
+@{
+    ViewBag.Title = "客戶聯絡人清單";
+}
 
-<h2>@ViewBag.Title</h2>
+<h2>@ViewBag.ClientName <span style="font-size:18px">  客戶聯絡人清單</span></h2> 
 
 <p>
-	@Html.ActionLink("新增聯絡人", "CreateByClient", new { id = ViewBag.ClientID })
+    @Html.ActionLink("新增客戶聯絡人", "新增客戶聯絡人", new { clientId = ViewBag.ClientID })
 </p>
 <table class="table">
     <tr>

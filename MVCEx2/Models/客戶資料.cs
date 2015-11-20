@@ -39,8 +39,11 @@ namespace MVCEx2.Models
 		public string 地址 { get; set; }
 		[EmailAddress]
 		public string Email { get; set; }
-		public bool 刪除註記 { get; set; }
+ 		public bool 刪除註記 { get; set; }
+ 
+        public Nullable<int> 客戶分類Id { get; set; }
     
+        public virtual 客戶分類 客戶分類 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<客戶銀行資訊> 客戶銀行資訊 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

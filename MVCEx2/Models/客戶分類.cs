@@ -13,25 +13,20 @@ namespace MVCEx2.Models
     using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
     
-    public partial class 客戶銀行資訊
+    public partial class 客戶分類
     {
-		public int Id { get; set; }
-		[Required]
-		public int 客戶Id { get; set; }
-		[Required]
-		[StringLength(50)]
-		public string 銀行名稱 { get; set; }
-		[Required]
-		public int 銀行代碼 { get; set; }
-		public Nullable<int> 分行代碼 { get; set; }
-		[Required]
-		[StringLength(50)]
-		public string 帳戶名稱 { get; set; }
-		[Required]
-		[StringLength(20)]
-		public string 帳戶號碼 { get; set; }
-		public bool 刪除註記 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public 客戶分類()
+        {
+            this.客戶資料 = new HashSet<客戶資料>();
+        }
     
-        public virtual 客戶資料 客戶資料 { get; set; }
+        public int Id { get; set; }
+		[Required]
+		[StringLength(50)]
+        public string 分類名稱 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<客戶資料> 客戶資料 { get; set; }
     }
 }

@@ -22,7 +22,9 @@ namespace MVCEx2.Models
         public string 地址 { get; set; }
         public string Email { get; set; }
         public bool 刪除註記 { get; set; }
+        public Nullable<int> 客戶分類Id { get; set; }
         public Nullable<int> 聯絡人數量 { get; set; }
         public Nullable<int> 銀行帳戶數量 { get; set; }
+        public string 分類名稱 { get; set; }
     }
 }

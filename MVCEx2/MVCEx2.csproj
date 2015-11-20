@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Omu.ValueInjecter, Version=3.1.1.0, Culture=neutral, PublicKeyToken=c7694541b0ac80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\valueinjecter.3.1.1\lib\net40\Omu.ValueInjecter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -216,6 +220,12 @@
     <Compile Include="Models\Validatable\UniformNoAttribute.cs" />
     <Compile Include="Models\Validatable\客戶聯絡人EmailValidate.cs" />
     <Compile Include="Models\Validatable\客戶資料UniformNoValidate.cs" />
+    <Compile Include="Models\客戶分類.cs">
+      <DependentUpon>CustomerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\客戶分類Repository.cs">
+      <DependentUpon>IRepository.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\客戶聯絡人.cs">
       <DependentUpon>CustomerModel.tt</DependentUpon>
     </Compile>
@@ -256,6 +266,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Models\IRepository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IRepository.cs</LastGenOutput>
+    </Content>
     <EntityDeploy Include="Models\CustomerModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CustomerModel.Designer.cs</LastGenOutput>
@@ -272,10 +286,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CustomerModel.edmx</DependentUpon>
       <LastGenOutput>CustomerModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\IRepository.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>IRepository.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -324,13 +334,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\客戶資料View\Details.cshtml" />
-    <Content Include="Views\客戶資料View\Index.cshtml" />
     <Content Include="Views\客戶資料View\_Layout.cshtml" />
     <Content Include="Views\客戶資料View\_ViewStart.cshtml" />
-    <Content Include="Views\客戶聯絡人\IndexByClient.cshtml" />
-    <Content Include="Views\客戶聯絡人\_ViewStart.cshtml" />
-    <Content Include="Views\客戶聯絡人\CreateByClient.cshtml" />
+    <Content Include="Views\客戶資料View\Index.cshtml" />
+    <Content Include="Views\客戶資料View\Edit.cshtml" />
+    <Content Include="Views\客戶資料View\Create.cshtml" />
+    <Content Include="Views\客戶資料View\客戶聯絡人清單.cshtml" />
+    <Content Include="Views\客戶資料View\新增客戶聯絡人.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

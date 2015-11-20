@@ -9,12 +9,12 @@
 
 namespace MVCEx2.Models
 {
-	using System;
-	using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
-
-	public partial class 客戶聯絡人
-	{
+    
+    public partial class 客戶聯絡人
+    {
 		public int Id { get; set; }
 		[Required]
 		public int 客戶Id { get; set; }
@@ -35,7 +35,7 @@ namespace MVCEx2.Models
 		[StringLength(50)]
 		public string 電話 { get; set; }
 		public bool 刪除註記 { get; set; }
-
-		public virtual 客戶資料 客戶資料 { get; set; }
-	}
+    
+        public virtual 客戶資料 客戶資料 { get; set; }
+    }
 }
