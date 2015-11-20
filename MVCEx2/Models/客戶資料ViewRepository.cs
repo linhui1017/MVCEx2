@@ -54,8 +54,31 @@ namespace MVCEx2.Models
 
 		public List<客戶聯絡人> Find客戶聯絡人清單(int? clientId) 
 		{
-			return this.DBContex.客戶聯絡人.Where(x => x.客戶Id == clientId).ToList();
+			return this.DBContex.客戶聯絡人.Where(x => x.客戶Id == clientId
+				& x.刪除註記 == false).ToList();
 		}
+	
+		public 客戶聯絡人 Find客戶聯絡人(int? id)
+		{
+			return this.DBContex.客戶聯絡人.Find(id);
+		}
+
+
+		public void Update客戶聯絡人(客戶聯絡人 data)
+		{
+			if (null != data)
+			{
+
+				客戶聯絡人 dbItem = Find客戶聯絡人(data.Id);
+				if (null != dbItem)
+				{
+					dbItem.InjectFrom(data);
+
+
+				}
+			}
+		}
+
 	}
 
 	public interface I客戶資料ViewRepository : IRepository<客戶資料View>

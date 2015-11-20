@@ -167,7 +167,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\客戶聯絡人Controller.cs" />
     <Compile Include="Controllers\客戶資料ViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -341,6 +340,8 @@
     <Content Include="Views\客戶資料View\Create.cshtml" />
     <Content Include="Views\客戶資料View\客戶聯絡人清單.cshtml" />
     <Content Include="Views\客戶資料View\新增客戶聯絡人.cshtml" />
+    <Content Include="Views\客戶資料View\編輯客戶聯絡人.cshtml" />
+    <Content Include="Views\客戶資料View\刪除客戶聯絡人.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

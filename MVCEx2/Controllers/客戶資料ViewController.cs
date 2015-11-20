@@ -129,7 +129,61 @@ namespace MVCEx2.Controllers
 			return View(客戶聯絡人);
 		}
 
+		public ActionResult 編輯客戶聯絡人(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			客戶聯絡人 客戶聯絡人 = rps.Find客戶聯絡人(id);
+			if (客戶聯絡人 == null)
+			{
+				return HttpNotFound();
+			}
+			ViewBag.客戶Id = new SelectList(rps.DBContex.客戶資料.Where(x => x.Id == 客戶聯絡人.客戶Id), "Id", "客戶名稱");
+			ViewBag.ClientID = 客戶聯絡人.客戶Id;
+			ViewBag.ClientName = 客戶聯絡人.客戶資料.客戶名稱; 
+			return View(客戶聯絡人);
+
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult 編輯客戶聯絡人([Bind(Include = "Id,客戶Id,職稱,姓名,Email,手機,電話,刪除註記")] 客戶聯絡人 客戶聯絡人)
+		{
+			if (ModelState.IsValid)
+			{
+				rps.Update客戶聯絡人(客戶聯絡人);
+				rps.Commit();
+				return RedirectToAction("客戶聯絡人清單", "客戶資料View", new { clientId = 客戶聯絡人.客戶Id});
+				//return RedirectToAction("Index");
+			}
+			ViewBag.客戶Id = new SelectList(rps.DBContex.客戶資料.Where(x => x.Id == 客戶聯絡人.客戶Id), "Id", "客戶名稱");
+			ViewBag.ClientID = 客戶聯絡人.客戶Id;
+			ViewBag.ClientName = rps.Find客戶資料(客戶聯絡人.客戶Id).客戶名稱; 
+			return View(客戶聯絡人);
+		}
+
+		public ActionResult 刪除客戶聯絡人(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			客戶聯絡人 客戶聯絡人 = rps.Find客戶聯絡人(id);
+			if (客戶聯絡人 == null)
+			{
+				return HttpNotFound();
+			}
+			ViewBag.客戶Id = new SelectList(rps.DBContex.客戶資料.Where(x => x.Id == 客戶聯絡人.客戶Id), "Id", "客戶名稱");
+			ViewBag.ClientID = 客戶聯絡人.客戶Id;
+			ViewBag.ClientName = 客戶聯絡人.客戶資料.客戶名稱; 
+			return View(客戶聯絡人);
+		}
+
 		#endregion
+
+		#region Instance Level
 
 		protected override void Dispose(bool disposing)
 		{
@@ -139,5 +193,8 @@ namespace MVCEx2.Controllers
 			}
 			base.Dispose(disposing);
 		}
+		
+		#endregion
+
 	}
 }
